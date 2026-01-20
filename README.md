@@ -1,88 +1,42 @@
+# TOPSIS
 
-# TOPSIS Implementation in Python
-
-**Course:** UCS654 - Predictive Analytics using Statistics  
-**Assignment:** Assignment-1 (TOPSIS)  
-**Author:** Ishika
-**Roll Number:** 102303460  
-
----
-
-## About the Project
-
-This repository contains a Python implementation of the  
-**TOPSIS (Technique for Order of Preference by Similarity to Ideal Solution)** method.
-
-TOPSIS is a **multi-criteria decision-making (MCDM)** technique used to rank multiple
-alternatives based on their distance from the ideal best and ideal worst solutions.
-
----
+TOPSIS (Technique for Order Preference by Similarity to Ideal Solution) is a multi-criteria decision-making method used to rank alternatives based on their closeness to the ideal solution. It evaluates options by comparing their distance from the best and worst possible values of each criterion. The alternative closest to the ideal and farthest from the negative ideal is ranked highest.
 
 ## Installation - USER MANUAL
-1. topsis-ishika-102303460 requires Python3 to run.
-2. Other dependencies that come installed with this package are :-
-    - pandas
-    - numpy
-3. Package listed on PyPI:- https://pypi.org/project/Topsis-Ishika-102303460/1.0.0/
-4. Use the following command to install this package:-
-    ```bash
-    pip install Topsis-Ishika-102303460==1.0.0
+Topsis-ishika-102303460 requires Python3 to run.
 
----
 
-## Usage
-Run the following command in command prompt:
+**Other dependencies that come installed with this package are :-**
+pandas
+numpy
+
+
+Package listed on PyPI:- (https://pypi.org/project/Topsis-Ishika-102303460/1.0.0/)
+Use the following command to install this package:-
 ```bash
-topsis <inputFile> <weights> <impacts> <outputFile>
-
+pip install Topsis-Ishika-102303460==1.0.0
 ```
 
+## Steps Involved in TOPSIS
 
-Example:
-```bash
-topsis sample.csv "1,1,1,1" "+,+,-,+" result.csv
-```
-## Help
+- **Construct the Decision Matrix**  
+  List all alternatives and their values for each criterion.
 
-To view usage instructions:
-```bash
-topsis /h
-```
-## Example
+- **Normalize the Decision Matrix**  
+  Convert different units into comparable, dimensionless values.
 
-### Input File: `sample.csv`
+- **Apply Weights to Criteria**  
+  Assign importance to each criterion based on its relevance.
 
-The input file contains data for different mobile handsets with multiple criteria.
+- **Determine Ideal Solutions**  
+  - Positive Ideal Solution (best values)  
+  - Negative Ideal Solution (worst values)
 
-| Model | Storage (GB) | Camera (MP) | Price ($) | Looks (out of 5) |
-|------|--------------|-------------|-----------|------------------|
-| M1   | 16           | 12          | 250       | 5                |
-| M2   | 16           | 8           | 200       | 3                |
-| M3   | 32           | 16          | 300       | 4                |
-| M4   | 32           | 8           | 275       | 4                |
-| M5   | 16           | 16          | 225       | 2                |
+- **Calculate Separation Measures**  
+  Find the distance of each alternative from both ideal solutions.
 
-## Weights
-```csharp
-[0.25, 0.25, 0.25, 0.25]
-```
+- **Calculate Relative Closeness**  
+  Compute a score that shows how close each alternative is to the ideal solution.
 
-## Impacts
-```csharp
-[+, +, -, +]
-```
-
-## Input Command
-```bash
-topsis sample.csv "0.25,0.25,0.25,0.25" "+,+,-,+"
-```
-### Output
-
-| Model | Topsis Score | Rank |
-|------|-------------|------|
-| M1   | 0.534277    | 3    |
-| M2   | 0.308368    | 5    |
-| M3   | 0.691632    | 1    |
-| M4   | 0.534737    | 2    |
-| M5   | 0.401046    | 4    |
-
+- **Rank the Alternatives**  
+  Higher score → better rank.
