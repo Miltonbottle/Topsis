@@ -11,10 +11,10 @@ pandas
 numpy
 
 
-Package listed on PyPI:- (https://pypi.org/project/Topsis-Ishika-102303460/1.0.0/)
+Package listed on PyPI:- (https://pypi.org/project/Topsis-Ishika-102303460)
 Use the following command to install this package:-
 ```bash
-pip install Topsis-Ishika-102303460==1.0.0
+pip install Topsis-Ishika-102303460
 ```
 
 ## Steps Involved in TOPSIS
@@ -40,3 +40,13 @@ pip install Topsis-Ishika-102303460==1.0.0
 
 - **Rank the Alternatives**  
   Higher score → better rank.
+
+## Usage
+Run the following command in command prompt:
+```bash
+topsis <inputFile> <weights> <impacts> <outputFile>
+```
+Example:
+```bash
+topsis sample.csv "1,1,1,1" "+,+,-,+" result.csv
+```
